@@ -1,11 +1,10 @@
 require 'date'
 class Lesson1
   def sum(val = 0)
-    # TODO
+    val.to_s.split(//).map(&:to_i).inject(:+)
   end
 
   def age(birthday)
-    # TODO
   end
 
   def name
