@@ -46,15 +46,17 @@ class MyArray
   end
 
   def chars
-    @array.map { |i| alphabet[i] }
+    alphabet = (:a..:z).to_a
+    @array.map { |i| alphabet[i - 1] }
   end
 
   def switch
+    min, max = @array.minmax
     @array.map do |x|
       if x == max
-        @array.min
+        min
       elsif x == min
-        @array.max
+        max
       else
         x
       end
@@ -62,10 +64,10 @@ class MyArray
   end
 
   def before_min
-    # TODO
+    @array.slice(0, @array.rindex(@array.min))
   end
 
   def three_smallest
-    # TODO
+    @array.min(3)
   end
 end
